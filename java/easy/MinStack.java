@@ -1,5 +1,8 @@
 import java.util.Stack;
 
+// Used a stack to implement a stack but operations are all O(1) including getMin()
+// Could have used a linked list to implement it from scratch
+
 class MinStack {
     private Stack<Integer> stack;
     private Stack<Integer> minimum;
@@ -18,11 +21,16 @@ class MinStack {
     }
     
     public void pop() {
-        int popped = stack.pop();
-        if (popped==minimum.peek()){ 
-            minimum.pop();  
+        // int popped = stack.pop();
+        // if (popped==minimum.peek()){ 
+        //     minimum.pop();  
+        // }
+
+        // stack.pop() returns an Integer. minimum.peek() returns an Integer.
+        // We can use .equals() to compare their values safely instead of converting to int
+        if (stack.pop().equals(minimum.peek())) {
+            minimum.pop();
         }
-        
     }
     
     public int top() {
