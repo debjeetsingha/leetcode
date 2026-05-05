@@ -29,3 +29,21 @@ class Solution:
         
         cur2.next = cur2.next.next
         return dummy.next
+
+
+# One Pass Solution
+
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        dummy = ListNode(next=head)
+        slow = dummy
+        fast = head
+        for x in range(n):
+            fast=fast.next
+        
+        while fast:
+            slow = slow.next
+            fast = fast.next
+        
+        slow.next = slow.next.next
+        return dummy.next 
