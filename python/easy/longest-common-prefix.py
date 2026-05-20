@@ -1,3 +1,8 @@
+"""
+LEETCODE 14 : https://leetcode.com/problems/longest-common-prefix/
+"""
+
+
 from typing import List
 
 def is_prefix(idx:int, char: str, strs: List[str]):
